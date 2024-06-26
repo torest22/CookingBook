@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CookingBook.Pages.RandomPage"
+             Title="RandomPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome, I`m search added some filter for recipe and rundom"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button x:Name="btnAllRandom"
+                Text="Open random recipe"
+                Clicked="btnAllRandom_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
