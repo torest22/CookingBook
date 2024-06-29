@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CookingBook.Pages.AddPage"
              Title="AddPage">
-    <VerticalStackLayout>
+    <VerticalStackLayout BackgroundColor="DarkGoldenrod">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -11,22 +11,34 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Frame 
-                Grid.Row="0">
+            <Frame Grid.Row="0"
+                   BackgroundColor="DarkGoldenrod">
                 <HorizontalStackLayout>
                     <Label 
-                        Text="Name"/>
+                        Text="Name"
+                        FontSize="20"
+                        FontFamily="BalsamiqItalic"
+                        TextColor="Black"/>
                     <Entry 
-                        x:Name="entyName"/>
+                        x:Name="entyName"
+                        FontSize="20"
+                        FontFamily="BalsamiqItalic"
+                        TextColor="Black"/>
                 </HorizontalStackLayout>
             </Frame>
-            <Frame
-                Grid.Row="1">
+            <Frame  Grid.Row="1"
+                    BackgroundColor="DarkGoldenrod">
                 <HorizontalStackLayout>
                     <Label
-                        Text="Decription"/>
+                        Text="Decription"
+                        FontSize="20"
+                        FontFamily="BalsamiqItalic"
+                        TextColor="Black"/>
                     <Editor
-                        x:Name="entryDesr"/>
+                        x:Name="entryDesr"
+                        FontSize="20"
+                        FontFamily="BalsamiqItalic"
+                        TextColor="Black"/>
                 </HorizontalStackLayout>
             </Frame>
 

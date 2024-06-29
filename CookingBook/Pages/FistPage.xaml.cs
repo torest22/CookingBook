@@ -17,8 +17,5 @@ public partial class FistPage : ContentPage
         Shell.Current.GoToAsync(nameof(RandomPage));
     }
 
-    private void btnRnd_Clicked(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(RandomPage));
-    }
+   
 }

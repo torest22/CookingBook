@@ -3,13 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CookingBook.Pages.RandomPage"
              Title="RandomPage">
-    <VerticalStackLayout>
+    <VerticalStackLayout BackgroundColor="DarkGoldenrod">
         <Label 
-            Text="Welcome, I`m search added some filter for recipe and rundom"
+            Text="I`m search how added some filter for recipe and random, but now you haw only open one button"
+            TextColor="Black"
+            FontSize="40"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            FontFamily="BalsamiqItalic"/>
         <Button x:Name="btnAllRandom"
                 Text="Open random recipe"
+                FontFamily="BalsamiqItalic"
                 Clicked="btnAllRandom_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

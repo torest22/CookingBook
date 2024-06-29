@@ -2,32 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xx="clr-namespace:CookingBook.Models"
-             x:Class="CookingBook.Pages.EditPage"
-             
+             x:Class="CookingBook.Pages.EditPage"             
              Title="EditPage">
-    <VerticalStackLayout Spacing="20">
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
-        <Frame>
+    <VerticalStackLayout Spacing="20"
+                         BackgroundColor="DarkGoldenrod">
+       
+        <Frame BackgroundColor="DarkGoldenrod">
             <HorizontalStackLayout>
-                <Label Text="Name" x:Name="lableName" />
-                <Entry x:Name="entryName" />
+                <Label Text="Name"
+                       x:Name="lableName" 
+                       FontFamily="BalsamiqItalic"
+                       TextColor="Black"
+                       FontSize="20"/>
+                <Entry x:Name="entryName"
+                       FontSize="20" 
+                       TextColor="Black"/>
             </HorizontalStackLayout>
             
         </Frame>
 
-        <Frame>
+        <Frame BackgroundColor="DarkGoldenrod">
             <HorizontalStackLayout>
-                <Label Text="Desctipion :"/>
-                <Entry x:Name="entryDescr"  />
+                <Label Text="Desctipion :"
+                       FontFamily="BalsamiqItalic"
+                       TextColor="Black"
+                       FontSize="20"/>
+                <Entry x:Name="entryDescr" 
+                       FontSize="20" 
+                       TextColor="Black"/>
             </HorizontalStackLayout>
            
         </Frame>
 
-        <Button x:Name="btnDelete" Text="Delete" Clicked="btnDelete_Clicked" />
-        <Button x:Name="btnUpDate" Text="UpDate Recipe" Clicked="btnUpDate_Clicked"/>
+        <Button x:Name="btnDelete"
+                Text="Delete"
+                Clicked="btnDelete_Clicked" />
+        <Button x:Name="btnUpDate"
+                Text="UpDate Recipe" 
+                Clicked="btnUpDate_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

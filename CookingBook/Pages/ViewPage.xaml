@@ -3,15 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CookingBook.Pages.ViewPage"
              Title="ViewPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI! ViewPage"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
-        <Label x:Name="labelName" Text=""/>
-        <Label x:Name="lableDescr" Text=""/>
-        <Button x:Name="BtnGoBack" Text="Back to list recipe" Clicked="BtnGoBack_Clicked"/>
-        <Button x:Name="BtnGoToEdit" Text="Edit recipe" Clicked="BtnGoToEdit_Clicked" />
+    <VerticalStackLayout BackgroundColor="DarkGoldenrod">
+        
+        <Label x:Name="labelName" 
+               Text="" 
+               FontSize="20"
+               FontFamily="BalsamiqItalic"
+               TextColor="Black"/>
+        <Label x:Name="lableDescr" 
+               Text=""
+               FontSize="20"
+               FontFamily="BalsamiqItalic"
+               TextColor="Black"/>
+        <Button x:Name="BtnGoBack" 
+                Text="Back to list recipe" 
+                Clicked="BtnGoBack_Clicked"/>
+        <Button x:Name="BtnGoToEdit" 
+                Text="Edit recipe"
+                Clicked="BtnGoToEdit_Clicked" />
     </VerticalStackLayout>
 </ContentPage>

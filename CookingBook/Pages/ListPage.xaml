@@ -3,23 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CookingBook.Pages.ListPage"
              Title="ListPage">
-    <VerticalStackLayout>
+    <VerticalStackLayout
+         BackgroundColor="DarkGoldenrod">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-
-         <!--  <CollectionView
-                Grid.Row="0"
-                x:Name="RecipeList">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Label Text="{Binding Name}"
-                               FontSize="Large"/>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView> -->
 
             <ListView 
                 x:Name="RecipeList"
@@ -29,9 +19,10 @@
                         <ViewCell>
                             <StackLayout>
                                 <Label 
-                                    Text="{Binding Name}"/>
-                                <Label
-                                    Text="{Binding id}"/>
+                                    Text="{Binding Name}"
+                                    FontSize="32"
+                                    FontFamily="BalsamiqItalic"
+                                    TextColor="Black"/>                               
                             </StackLayout>
                           
                         </ViewCell>
