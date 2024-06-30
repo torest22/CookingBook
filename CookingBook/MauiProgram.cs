@@ -1,4 +1,5 @@
-﻿using CookingBook.Services;
+﻿using CommunityToolkit.Maui;
+using CookingBook.Services;
 using Microsoft.Extensions.Logging;
 
 namespace CookingBook
@@ -16,7 +17,7 @@ namespace CookingBook
                   //  fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("BalsamiqSans-Italic.ttf", "BalsamiqItalic");
                 });
-
+            builder.UseMauiApp<App>().UseMauiCommunityToolkit();
             string dbPath = FileAccessHelper.GetLocationFilePath("recipe.db3");
             builder.Services.AddSingleton<RecipeRepository>(s => ActivatorUtilities.CreateInstance<RecipeRepository>(s, dbPath));
 

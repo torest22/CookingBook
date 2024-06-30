@@ -1,51 +1,68 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CookingBook.Pages.AddPage"
-             Title="AddPage">
-    <VerticalStackLayout BackgroundColor="DarkGoldenrod">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+             xmlns:tooklit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="CookingBook.Pages.AddPage">
 
-            <Frame Grid.Row="0"
-                   BackgroundColor="DarkGoldenrod">
+    <ScrollView>
+        <VerticalStackLayout BackgroundColor="#f5c125"
+                             Padding="10"
+                             Spacing="20">
+
+            <Frame BackgroundColor="#f5c125">
                 <HorizontalStackLayout>
-                    <Label 
-                        Text="Name"
-                        FontSize="20"
-                        FontFamily="BalsamiqItalic"
-                        TextColor="Black"/>
-                    <Entry 
-                        x:Name="entyName"
-                        FontSize="20"
-                        FontFamily="BalsamiqItalic"
-                        TextColor="Black"/>
-                </HorizontalStackLayout>
-            </Frame>
-            <Frame  Grid.Row="1"
-                    BackgroundColor="DarkGoldenrod">
-                <HorizontalStackLayout>
-                    <Label
-                        Text="Decription"
-                        FontSize="20"
-                        FontFamily="BalsamiqItalic"
-                        TextColor="Black"/>
-                    <Editor
-                        x:Name="entryDesr"
-                        FontSize="20"
-                        FontFamily="BalsamiqItalic"
-                        TextColor="Black"/>
+                    <Label Text="Name: "
+                           FontFamily="BalsamiqItalic"
+                           TextColor="Black"
+                           FontSize="20"/>
+
+
+                    <Entry x:Name="entryName"
+                           FontSize="20" 
+                           TextColor="Black"
+                           WidthRequest="200"
+                           Placeholder="Min 3 max 30 symbols">
+                        <Entry.Behaviors>
+                            <tooklit:TextValidationBehavior MinimumLength="3"
+                                                            Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                            MaximumLength="30"
+                                                            x:Name="nameValidator"
+                                                            />
+                        </Entry.Behaviors>
+                    </Entry>
                 </HorizontalStackLayout>
             </Frame>
 
-            <Button Grid.Row="3"
-                x:Name="btnAdd"
-                Text="Add recipe"
-                Clicked="btnAdd_Clicked"/>
-        </Grid>
-    </VerticalStackLayout>
+            <Frame BackgroundColor="White">
+                <HorizontalStackLayout>
+                    <Label Text="Description: "
+                           FontFamily="BalsamiqItalic"
+                           TextColor="Black"
+                           FontSize="20"/>
+                    <Editor x:Name="entryDescr" 
+                            FontSize="20" 
+                            TextColor="Black"                          
+                            WidthRequest="500"
+                            HeightRequest="400"
+                            Placeholder="Maximun 1000 symbols">
+                        <Editor.Behaviors>
+                            <tooklit:TextValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                                            MaximumLength="1000"/>
+                        </Editor.Behaviors>
+                    </Editor>
+
+
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Button x:Name="btnAdd"
+                    Text="Add recipe"
+                    Clicked="btnAdd_Clicked"
+                    FontSize="24"
+                    BackgroundColor="Orange"
+                    BorderWidth="2"
+                    BorderColor="Black"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

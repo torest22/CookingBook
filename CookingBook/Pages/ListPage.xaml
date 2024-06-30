@@ -1,41 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CookingBook.Pages.ListPage"
-             Title="ListPage">
-    <VerticalStackLayout
-         BackgroundColor="DarkGoldenrod">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+             x:Class="CookingBook.Pages.ListPage">
+    <StackLayout BackgroundColor="#f5c125" Padding="10,5,10,5">
 
-            <ListView 
-                x:Name="RecipeList"
-                ItemSelected="RecipeList_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate >
-                        <ViewCell>
-                            <StackLayout>
-                                <Label 
-                                    Text="{Binding Name}"
-                                    FontSize="32"
-                                    FontFamily="BalsamiqItalic"
-                                    TextColor="Black"/>                               
-                            </StackLayout>
-                          
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            
-            <Button Grid.Row="1"
-                x:Name="btnAddRecipe"
+
+        <Button x:Name="btnAddRecipe" 
                 Text="Add recipe" 
-                Clicked="btnAddRecipe_Clicked"/>
-        </Grid>
+                Clicked="btnAddRecipe_Clicked"
+                Padding="2,2,2,2"
+                FontSize="24"
+                BackgroundColor="#b15706"
+                BorderWidth="2"
+                BorderColor="Black"   />    
 
-      
-    </VerticalStackLayout>
+
+        <ListView x:Name="RecipeList"
+                  ItemSelected="RecipeList_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="2,2,2,2">
+                            <Frame BorderColor="Black"
+                                   BackgroundColor="#f5c125">
+                                <Label Text="{Binding Name}" 
+                                       FontSize="32"
+                                       FontFamily="BalsamiqItalic" 
+                                       TextColor="Black" />
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
 </ContentPage>

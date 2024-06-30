@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CookingBook.Pages.RandomPage"
-             Title="RandomPage">
-    <VerticalStackLayout BackgroundColor="DarkGoldenrod">
+             >
+    <VerticalStackLayout BackgroundColor="#f5c125"
+                         Padding="10,5,10,5">
         <Label 
             Text="I`m search how added some filter for recipe and random, but now you haw only open one button"
             TextColor="Black"
@@ -14,6 +15,13 @@
         <Button x:Name="btnAllRandom"
                 Text="Open random recipe"
                 FontFamily="BalsamiqItalic"
-                Clicked="btnAllRandom_Clicked"/>
+                Clicked="btnAllRandom_Clicked"
+                FontSize="24"
+                BackgroundColor="Orange"
+                BorderWidth="2"
+                BorderColor="Black"
+                HorizontalOptions="Center"
+                WidthRequest="300"
+                />
     </VerticalStackLayout>
 </ContentPage>

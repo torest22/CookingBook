@@ -3,42 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xx="clr-namespace:CookingBook.Models"
              x:Class="CookingBook.Pages.EditPage"             
-             Title="EditPage">
+             >
+    <ScrollView>
     <VerticalStackLayout Spacing="20"
-                         BackgroundColor="DarkGoldenrod">
-       
-        <Frame BackgroundColor="DarkGoldenrod">
+                         BackgroundColor="#f5c125"
+                         Padding="10">
+
+        <Frame BackgroundColor="#f5c125">
             <HorizontalStackLayout>
-                <Label Text="Name"
+                <Label Text="Name: "
                        x:Name="lableName" 
                        FontFamily="BalsamiqItalic"
                        TextColor="Black"
                        FontSize="20"/>
                 <Entry x:Name="entryName"
                        FontSize="20" 
-                       TextColor="Black"/>
+                       TextColor="Black"
+                       WidthRequest="200"/>
             </HorizontalStackLayout>
             
         </Frame>
 
-        <Frame BackgroundColor="DarkGoldenrod">
+        <Frame BackgroundColor="White"
+               >
             <HorizontalStackLayout>
-                <Label Text="Desctipion :"
+                <Label Text="Desctipion: "
                        FontFamily="BalsamiqItalic"
                        TextColor="Black"
-                       FontSize="20"/>
-                <Entry x:Name="entryDescr" 
-                       FontSize="20" 
-                       TextColor="Black"/>
+                       FontSize="20"
+                       />
+                <Editor x:Name="entryDescr" 
+                        FontSize="20" 
+                        TextColor="Black"                          
+                        WidthRequest="500"
+                        HeightRequest="400"
+                        />
             </HorizontalStackLayout>
            
         </Frame>
 
-        <Button x:Name="btnDelete"
-                Text="Delete"
-                Clicked="btnDelete_Clicked" />
-        <Button x:Name="btnUpDate"
-                Text="UpDate Recipe" 
-                Clicked="btnUpDate_Clicked"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="2"
+                    Grid.Column="0"
+                    x:Name="btnDelete"
+                    Text="Delete"
+                    Clicked="btnDelete_Clicked"
+                    FontSize="24"
+                    BackgroundColor="Orange"
+                    BorderWidth="2"
+                    BorderColor="Black"
+                    
+                />
+            <Button 
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    x:Name="btnUpDate"
+                    Text="UpDate Recipe" 
+                    Clicked="btnUpDate_Clicked"
+                    FontSize="24"
+                    BackgroundColor="Orange"
+                    BorderWidth="2"
+                    BorderColor="Black"   
+                    
+                />
+
+        </Grid>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
