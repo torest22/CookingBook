@@ -94,7 +94,7 @@ public partial class EditPage : ContentPage
     {
         if (_recipe != null)
         {
-            bool answer = await DisplayAlert("Question?", "Don`t save changes?", "Yes", "No");
+            bool answer = await DisplayAlert("Question:", "Do you want exit without change?", "Yes", "No");
             Debug.WriteLine("Answer: " + answer);
             if (answer is true)
             {

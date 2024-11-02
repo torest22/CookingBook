@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace CookingBook.Pages;
 
 public partial class AddPage : ContentPage
@@ -24,5 +26,18 @@ public partial class AddPage : ContentPage
         await App.RecipeRepo.AddRecipe(entryName.Text, entryDescr.Text);
         await Shell.Current.GoToAsync(nameof(ListPage));
 		
+    }
+
+    private async void btnBack_Clicked(object sender, EventArgs e)
+    {
+        
+            bool answer = await DisplayAlert("Question:", "Do you want exit without change?", "Yes", "No");
+            Debug.WriteLine("Answer: " + answer);
+            if (answer is true)
+            {
+
+                await Shell.Current.GoToAsync(nameof(ListPage));
+            }
+        
     }
 }

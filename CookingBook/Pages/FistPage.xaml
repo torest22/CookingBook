@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CookingBook.Pages.FistPage"
              Title="FistPage">
+    <ScrollView>
     <StackLayout BackgroundColor="#f5c125"
                          Padding="10,5,10,5">
         <Grid>
@@ -68,4 +69,5 @@
        
 
     </StackLayout>
+    </ScrollView>
 </ContentPage>

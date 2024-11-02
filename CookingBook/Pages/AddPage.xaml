@@ -40,8 +40,7 @@
                             FontSize="20"/>
                     <Editor x:Name="entryDescr" 
                             FontSize="20" 
-                            TextColor="Black"                          
-                            WidthRequest="500"
+                            TextColor="Black"                         
                             HeightRequest="400"
                             Placeholder="Maximun 1000 symbols">
                         <Editor.Behaviors>
@@ -62,6 +61,16 @@
                     BackgroundColor="Orange"
                     BorderWidth="2"
                     BorderColor="Black"/>
+
+            <Button x:Name="btnBack"
+                    Text="Black"
+                    Clicked="btnBack_Clicked"
+                    BackgroundColor="Orange"
+                    BorderWidth="2"
+                    FontSize="24"
+                    BorderColor="Black"/>   
+
+
 
         </VerticalStackLayout>
     </ScrollView>
