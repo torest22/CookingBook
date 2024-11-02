@@ -1,5 +1,7 @@
 ﻿using SQLite;
 using CookingBook.Models;
+using CookingBook.Pages;
+
 
 
 
@@ -50,13 +52,6 @@ namespace CookingBook.Services
         }
 
 
-        public async Task<Recipe> GetById(int recipeId)
-        {
-            Init();
-            var result = await _connection.Table<Recipe>().FirstOrDefaultAsync(x => x.id == recipeId);
-
-            return result;
-        }
 
         public async Task<Recipe> GetByIdAsync(int id)
         {
@@ -101,22 +96,23 @@ namespace CookingBook.Services
                 throw new KeyNotFoundException($"Recipe with id {recipeId} not found.");
             }
         }
-        public async Task<Recipe> GetRandomRecipeAsync()
-        {
-            var recipes = await _connection.Table<Recipe>().ToListAsync();
-            if (recipes.Count > 0)
-            {
-                var randomIndex = new Random().Next(0, recipes.Count);
-                return recipes[randomIndex];
-            }
-            return null;
-        }
+    
 
         public async Task<Recipe> GetRNDRecipe()
         {
             await Init();
+
+
+
+
             var recipes = await _connection.Table<Recipe>().ToListAsync();
-            if (recipes.Count > 0)
+            if (recipes.Count <= 0)
+            {
+               await Application.Current.MainPage.DisplayAlert("Attention", "You dont have recipie", "ОК");
+                //  return null;
+                await Shell.Current.GoToAsync(nameof(FistPage));
+            }
+            else
             {
                 var random = new Random();
                 var randomIndex = random.Next(0, recipes.Count);

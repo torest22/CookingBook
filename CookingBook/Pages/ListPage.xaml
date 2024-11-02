@@ -2,38 +2,53 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CookingBook.Pages.ListPage">
+
     <StackLayout BackgroundColor="#f5c125" Padding="10,5,10,5">
 
-
-        <Button x:Name="btnAddRecipe" 
-                Text="Add recipe" 
-                Clicked="btnAddRecipe_Clicked"
-                Padding="2,2,2,2"
-                FontSize="24"
-                BackgroundColor="#b15706"
-                BorderWidth="2"
-                BorderColor="Black"   />    
-
-
-        <ListView x:Name="RecipeList"
-                  ItemSelected="RecipeList_ItemSelected">
+        <SearchBar x:Name="btnSearch"
+                   Placeholder="Search...."
+                   TextColor="Black"
+                   FontSize="20">
+            
+        </SearchBar>   
+        
+    <ListView x:Name="RecipeList"
+              ItemSelected="RecipeList_ItemSelected"
+              HasUnevenRows="True"
+              >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="2,2,2,2">
-                            <Frame BorderColor="Black"
-                                   BackgroundColor="#f5c125">
+                            <Frame   BorderColor="Black"
+                                     BackgroundColor="#f5c125"
+                                     >
                                 <Label Text="{Binding Name}" 
                                        FontSize="32"
                                        FontFamily="BalsamiqItalic" 
-                                       TextColor="Black" />
+                                       TextColor="Black"
+                                       />
                             </Frame>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        
+        <AbsoluteLayout>
+            <Button x:Name="btnAddRecipe" 
+                    Text="Add recipe" 
+                    Clicked="btnAddRecipe_Clicked"
+                    Padding="2,2,2,2"
+                    FontSize="24"
+                    BackgroundColor="#b15706"
+                    BorderWidth="2"
+                    BorderColor="Black"  
+                    CornerRadius="25"
+                    AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+             />
+        </AbsoluteLayout>
     </StackLayout>
-
+  
 </ContentPage>

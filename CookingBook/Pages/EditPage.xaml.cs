@@ -58,9 +58,19 @@ public partial class EditPage : ContentPage
 
     private async void btnUpDate_Clicked(object sender, EventArgs e)
     {
-       
-            // Оновлюємо рецепт за допомогою методу з репозиторію
-            _recipe = await App.RecipeRepo.UpdateRecipe(recId, _recipe);
+        if (nameValidator.IsNotValid)
+        {
+            await DisplayAlert("Error ", "Name is requred.End minimum 3 symbols maximun 50", "Ok");
+            return;
+        }
+        if (textValidator.IsNotValid)
+        {
+            await DisplayAlert("Error ", "desctiprion is maximum 1000 sumbols", "Ok");
+            return;
+        }
+
+        // Оновлюємо рецепт за допомогою методу з репозиторію
+        _recipe = await App.RecipeRepo.UpdateRecipe(recId, _recipe);
 
         if (_recipe != null)
         {
@@ -76,6 +86,23 @@ public partial class EditPage : ContentPage
 
             // Переходимо на сторінку зі списком після успішного оновлення
             await Shell.Current.GoToAsync(nameof(ListPage));
+
+        }
+    }
+
+    private async void Btnback_Clicked(object sender, EventArgs e)
+    {
+        if (_recipe != null)
+        {
+            bool answer = await DisplayAlert("Question?", "Don`t save changes?", "Yes", "No");
+            Debug.WriteLine("Answer: " + answer);
+            if (answer is true)
+            {
+             
+                await Shell.Current.GoToAsync(nameof(ListPage));
+            }
+
+
 
         }
     }

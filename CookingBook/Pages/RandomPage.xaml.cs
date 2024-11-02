@@ -19,10 +19,21 @@ public partial class RandomPage : ContentPage
     }
 
     private async void btnAllRandom_Clicked(object sender, EventArgs e)
-    {   
-    
-        int rndID = (await App.RecipeRepo.GetRNDRecipe()).id;
-        await Navigation.PushAsync(new ViewPage(rndID));
+    {
+
+        var recipe = await App.RecipeRepo.GetRNDRecipe();
+
+       
+        if (recipe != null)
+        {
+            // Якщо є рецепт, переходимо на сторінку перегляду
+            int rndID = recipe.id;
+            await Navigation.PushAsync(new ViewPage(rndID));
+        }
+        else
+        {
+            await Shell.Current.GoToAsync(nameof(FistPage));
+        }
     }
     
 }

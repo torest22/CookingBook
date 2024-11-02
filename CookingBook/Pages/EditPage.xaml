@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xx="clr-namespace:CookingBook.Models"
+             xmlns:tooklit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="CookingBook.Pages.EditPage"             
              >
     <ScrollView>
@@ -11,41 +12,62 @@
 
         <Frame BackgroundColor="#f5c125">
             <HorizontalStackLayout>
-                <Label Text="Name: "
-                       x:Name="lableName" 
-                       FontFamily="BalsamiqItalic"
-                       TextColor="Black"
-                       FontSize="20"/>
-                <Entry x:Name="entryName"
-                       FontSize="20" 
-                       TextColor="Black"
-                       WidthRequest="200"/>
-            </HorizontalStackLayout>
+                    <Label Text="Name: "
+                           x:Name="lableName" 
+                           FontFamily="BalsamiqItalic"
+                           TextColor="Black"
+                           FontSize="20"                       
+                       />
+                    <Entry x:Name="entryName"
+                           FontSize="20" 
+                           TextColor="Black"                           
+                           Placeholder="Min 3 max 50 symbols"                           
+                           > 
+                        <Entry.Behaviors>
+                            <tooklit:TextValidationBehavior 
+                                    MinimumLength="3"
+                                    Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                    MaximumLength="50"
+                                    x:Name="nameValidator"
+                                    />
+                        </Entry.Behaviors>
+                    </Entry>
+                </HorizontalStackLayout>
             
         </Frame>
 
         <Frame BackgroundColor="White"
-               >
-            <HorizontalStackLayout>
+               >               
+            <VerticalStackLayout>
                 <Label Text="Desctipion: "
                        FontFamily="BalsamiqItalic"
                        TextColor="Black"
-                       FontSize="20"
+                       FontSize="20" 
+                      
                        />
-                <Editor x:Name="entryDescr" 
-                        FontSize="20" 
-                        TextColor="Black"                          
-                        WidthRequest="500"
-                        HeightRequest="400"
-                        />
-            </HorizontalStackLayout>
+                    <Editor x:Name="entryDescr" 
+                            FontSize="20" 
+                            TextColor="Black"                                             
+                            Placeholder =" Maximun 1000 Submols"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                        >
+                        
+                        <Editor.Behaviors>
+                            <tooklit:TextValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                MaximumLength="1000"
+                                x:Name="textValidator"/>
+                        </Editor.Behaviors>
+                    </Editor>
+                </VerticalStackLayout>
            
         </Frame>
 
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
-            </Grid.RowDefinitions>
+                <RowDefinition/>
+                </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -58,9 +80,10 @@
                     Text="Delete"
                     Clicked="btnDelete_Clicked"
                     FontSize="24"
-                    BackgroundColor="Orange"
+                    BackgroundColor="Red"
                     BorderWidth="2"
                     BorderColor="Black"
+                    Margin="5"
                     
                 />
             <Button 
@@ -72,11 +95,23 @@
                     FontSize="24"
                     BackgroundColor="Orange"
                     BorderWidth="2"
-                    BorderColor="Black"   
+                    BorderColor="Black" 
+                    Margin="5"
                     
                 />
+                <Button
+                    
+                    x:Name="Btnback"
+                    Text="Black" 
+                    Clicked="Btnback_Clicked"
+                    FontSize="24"
+                    BackgroundColor="Orange"
+                    BorderWidth="2"
+                    BorderColor="Black"  
+                    Margin="5"
+                    />
 
-        </Grid>
+            </Grid>
     </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

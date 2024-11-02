@@ -20,11 +20,11 @@
                            FontSize="20" 
                            TextColor="Black"
                            WidthRequest="200"
-                           Placeholder="Min 3 max 30 symbols">
+                           Placeholder="Min 3 max 50 symbols">
                         <Entry.Behaviors>
                             <tooklit:TextValidationBehavior MinimumLength="3"
                                                             Flags="ValidateOnAttaching,ValidateOnValueChanged"
-                                                            MaximumLength="30"
+                                                            MaximumLength="50"
                                                             x:Name="nameValidator"
                                                             />
                         </Entry.Behaviors>
@@ -33,11 +33,11 @@
             </Frame>
 
             <Frame BackgroundColor="White">
-                <HorizontalStackLayout>
-                    <Label Text="Description: "
-                           FontFamily="BalsamiqItalic"
-                           TextColor="Black"
-                           FontSize="20"/>
+                <VerticalStackLayout>
+                    <Label  Text="Description: "
+                            FontFamily="BalsamiqItalic"
+                            TextColor="Black"
+                            FontSize="20"/>
                     <Editor x:Name="entryDescr" 
                             FontSize="20" 
                             TextColor="Black"                          
@@ -46,12 +46,13 @@
                             Placeholder="Maximun 1000 symbols">
                         <Editor.Behaviors>
                             <tooklit:TextValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
-                                                            MaximumLength="1000"/>
+                                                            MaximumLength="1000"
+                                                            x:Name="textValidator"/>
                         </Editor.Behaviors>
                     </Editor>
 
 
-                </HorizontalStackLayout>
+                </VerticalStackLayout>
             </Frame>
 
             <Button x:Name="btnAdd"

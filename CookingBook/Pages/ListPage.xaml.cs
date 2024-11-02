@@ -30,10 +30,10 @@ public partial class ListPage : ContentPage
 
         if (e.SelectedItem is Recipe selectedRecipe)
         {
-            int recipeId = selectedRecipe.id;
-            //  await Shell.Current.GoToAsync($"{nameof(EditPage)}?recipeId={recipeId}");
-            // await Navigation.PushAsync(new ViewPage(recipeId));
+            int recipeId = selectedRecipe.id;            
             await Navigation.PushAsync(new ViewPage(recipeId));
+
+            ((ListView)sender).SelectedItem = null;
 
         }
 

@@ -38,7 +38,7 @@
                      Text="Open recipe"
                      Clicked="btnRecipe_Clicked" 
                      HeightRequest="50"
-                     WidthRequest="200"
+                     
                      HorizontalOptions="StartAndExpand"
                      TextColor="Black"
                      FontSize="24"
@@ -53,7 +53,7 @@
                      Text="Go to random" 
                      Clicked="btnRandom_Clicked"
                      HeightRequest="50"
-                     WidthRequest="200"
+                     
                      HorizontalOptions="EndAndExpand"
                      FontSize="24"
                      BackgroundColor="Orange"
