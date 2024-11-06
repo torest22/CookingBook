@@ -108,8 +108,7 @@ namespace CookingBook.Services
             var recipes = await _connection.Table<Recipe>().ToListAsync();
             if (recipes.Count <= 0)
             {
-               await Application.Current.MainPage.DisplayAlert("Attention", "You dont have recipie", "ОК");
-                //  return null;
+               await Application.Current.MainPage.DisplayAlert("Attention", "You dont have recipie", "ОК"); 
                 await Shell.Current.GoToAsync(nameof(FistPage));
             }
             else
@@ -121,5 +120,26 @@ namespace CookingBook.Services
             return null;
 
         }
+
+        public async Task<List<Recipe>> SearchDB(string TextSearch)
+        {
+            //old search
+            // var ResSearch =  _connection.Table<Recipe>().Where(x => !string.IsNullOrEmpty(x.Name) && x.Name.StartsWith(TextSearch, StringComparison.OrdinalIgnoreCase))?.ToListAsync();
+
+            if (string.IsNullOrEmpty(TextSearch))
+                return new List<Recipe>();
+
+            string searchPattern = $"%{TextSearch}%";
+
+            // Використовуємо LINQ для пошуку з Contains у якості альтернативи
+            var ResSearch = await _connection.Table<Recipe>()
+                .Where(x => x.Name != null && x.Name.Contains(TextSearch))
+                .ToListAsync();
+
+            return ResSearch;
+
+            
+        }
+               
     }
 }

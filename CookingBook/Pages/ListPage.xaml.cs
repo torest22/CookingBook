@@ -39,5 +39,10 @@ public partial class ListPage : ContentPage
 
     }
 
+    private async void btnSearch_TextChanged(object sender, TextChangedEventArgs e)
+    {
+     List<Recipe> recipes = await App.RecipeRepo.SearchDB(((SearchBar)sender).Text);
 
+        RecipeList.ItemsSource = recipes;       
+    }
 }

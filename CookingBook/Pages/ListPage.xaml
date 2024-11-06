@@ -8,7 +8,8 @@
         <SearchBar x:Name="btnSearch"
                    Placeholder="Search...."
                    TextColor="Black"
-                   FontSize="20">
+                   FontSize="20"
+                   TextChanged="btnSearch_TextChanged">
             
         </SearchBar>   
         
