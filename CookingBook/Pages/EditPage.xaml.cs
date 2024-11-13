@@ -31,13 +31,42 @@ public partial class EditPage : ContentPage
 
     private async void LoadRecipe(int recipeId)
     {
+        // Встановлюємо ItemsSource для Picker
+        TypeDishFilter.ItemsSource = new List<string> { "1st dish", "2nd dish", "Desert", "Drink", "Snack" };
+
+        // Додаємо обробник події SelectedIndexChanged
+        TypeDishFilter.SelectedIndexChanged += (s, e) =>
+        {
+            if (TypeDishFilter.SelectedItem != null)
+            {
+                _recipe.TypeDish = TypeDishFilter.SelectedItem.ToString();
+            }
+        };
+
+        // Завантажуємо рецепт з бази даних
         _recipe = await App.RecipeRepo.GetByIdAsync(recipeId);
         if (_recipe != null)
         {
             entryName.Text = _recipe.Name;
             entryDescr.Text = _recipe.Description;
+
+            // Затримка для впевненості, що Picker готовий до прийняття значення
+            await Task.Delay(50);
+
+            // Встановлюємо значення для Picker (перевіряємо, чи є в ItemsSource)
+            if (TypeDishFilter.ItemsSource.Contains(_recipe.TypeDish))
+            {
+                TypeDishFilter.SelectedItem = _recipe.TypeDish;
+            }
+            else
+            {
+                Console.WriteLine($"Значення {_recipe.TypeDish} не знайдено в ItemsSource Picker");
+            }
         }
     }
+
+
+
 
     private async void btnDelete_Clicked(object sender, EventArgs e)
     {

@@ -48,14 +48,14 @@
                     <Editor x:Name="entryDescr" 
                             FontSize="20" 
                             TextColor="Black"                                             
-                            Placeholder =" Maximun 1000 Submols"
+                            Placeholder =" Maximun 5000 Submols"
                             VerticalOptions="FillAndExpand"
                             HorizontalOptions="FillAndExpand"
                         >
                         
                         <Editor.Behaviors>
                             <tooklit:TextValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
-                                MaximumLength="1000"
+                                MaximumLength="5000"
                                 x:Name="textValidator"/>
                         </Editor.Behaviors>
                     </Editor>
@@ -110,6 +110,16 @@
                     BorderColor="Black"  
                     Margin="5"
                     />
+                <Frame Grid.Column="1"
+                       BackgroundColor="#b15706">
+                    <Picker x:Name="TypeDishFilter"
+                            Title="Type dish"
+                            TitleColor="Black"
+                            TextColor="Black"
+                            FontSize="20"
+                            />    
+                </Frame>
+
 
             </Grid>
     </VerticalStackLayout>

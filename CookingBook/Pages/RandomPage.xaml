@@ -11,7 +11,9 @@
             FontSize="40"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
-            FontFamily="BalsamiqItalic"/>
+            FontFamily="BalsamiqItalic"
+            />
+        
         <Button x:Name="btnAllRandom"
                 Text="Open random recipe"
                 FontFamily="BalsamiqItalic"
@@ -21,7 +23,26 @@
                 BorderWidth="2"
                 BorderColor="Black"
                 HorizontalOptions="Center"
-                WidthRequest="300"
+                WidthRequest="300"                
+                />
+        <Frame Margin="2,2,2,2"
+               BackgroundColor="#b15706">
+            <Picker x:Name="TypeDishFilter"
+                    TextColor="Black"
+                    Title="Choce type of recipe"
+                    FontSize="20"
+                    TitleColor="Black"
+                />
+        </Frame>
+        <Button x:Name="btnRndTypeDish"
+                Text="Open rnd recipe"
+                FontSize="24"
+                BackgroundColor="Orange"
+                BorderWidth="2"
+                BorderColor="Black"
+                HorizontalOptions="Center"
+                WidthRequest="300" 
+                Clicked="btnRndTypeDish_Clicked"
                 />
     </VerticalStackLayout>
 </ContentPage>

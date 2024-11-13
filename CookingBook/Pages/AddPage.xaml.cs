@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace CookingBook.Pages;
 
@@ -7,10 +7,17 @@ public partial class AddPage : ContentPage
 	public AddPage()
 	{
 		InitializeComponent();
-	}
+        LoadTypeRecipe();
+    }
+
+    private async void LoadTypeRecipe()
+    {
+        TypeDishFilter.ItemsSource = new List<string> { "1st dish", "2nd dish", "Desert", "Drink", "Snack" };         
+    }
 
     private async void btnAdd_Clicked(object sender, EventArgs e)
     {
+       
         if (nameValidator.IsNotValid)
         {
             await DisplayAlert("Error ","Name is requred.End minimum 3 symbols maximun 50", "Ok");
@@ -19,11 +26,13 @@ public partial class AddPage : ContentPage
 
         if (textValidator.IsNotValid)
         {
-            await DisplayAlert("Error ", "desctiprion is maximum 1000 sumbols", "Ok");
+            await DisplayAlert("Error ", "desctiprion is maximum 5000 sumbols", "Ok");
             return;
         }
 
-        await App.RecipeRepo.AddRecipe(entryName.Text, entryDescr.Text);
+        string selectedTypeDish = TypeDishFilter.SelectedItem != null ? TypeDishFilter.SelectedItem.ToString() : ""; // AI
+        await App.RecipeRepo.AddRecipe(entryName.Text, entryDescr.Text , selectedTypeDish);
+
         await Shell.Current.GoToAsync(nameof(ListPage));
 		
     }

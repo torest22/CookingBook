@@ -35,12 +35,12 @@ namespace CookingBook.Services
             return await _connection.Table<Recipe>().ToListAsync();
         }
 
-        public async Task AddRecipe(string name, string descr)
+        public async Task AddRecipe(string name, string descr, string typeDish)
         {
             int result = 0;
             await Init();
 
-            result = await _connection.InsertAsync(new Recipe { Name = name, Description = descr });
+            result = await _connection.InsertAsync(new Recipe { Name = name, Description = descr, TypeDish = typeDish  });
 
         }
 
@@ -60,43 +60,41 @@ namespace CookingBook.Services
 
         public async Task<Recipe> UpdateRecipe(int recipeId, Recipe recipe)
         {
-            // Перевірка, чи збігається recipeId з id об'єкта recipe
+            // Перевірка відповідності ідентифікаторів
             if (recipeId != recipe.id)
             {
-                // Якщо id не збігаються, можна викинути помилку або взяти інші заходи
                 throw new ArgumentException("Recipe id does not match provided id.");
             }
 
-            // Знаходимо рецепт за його ідентифікатором у базі даних
+            // Знаходимо рецепт за його ідентифікатором
             var RecipeUpDate = await _connection.Table<Recipe>().FirstOrDefaultAsync(r => r.id == recipeId);
 
             if (RecipeUpDate != null)
             {
-                // Оновлюємо властивості рецепта з об'єкта recipe
+                // Оновлюємо значення полів
                 RecipeUpDate.Name = recipe.Name;
                 RecipeUpDate.Description = recipe.Description;
+                RecipeUpDate.TypeDish = recipe.TypeDish;
 
-                // Виконуємо оновлення у базі даних і отримуємо кількість оновлених записів
+                // Виконуємо оновлення в базі даних
                 int rowsAffected = await _connection.UpdateAsync(RecipeUpDate);
 
-                // Якщо оновлення успішне, повертаємо оновлений об'єкт рецепта
+                // Повертаємо оновлений об'єкт рецепта, якщо все пройшло успішно
                 if (rowsAffected > 0)
                 {
                     return RecipeUpDate;
                 }
                 else
                 {
-                    // Можна обробити ситуацію, коли нічого не оновлено
                     throw new Exception("Update failed: Recipe was not found or update operation failed.");
                 }
             }
             else
             {
-                // Можна обробити ситуацію, коли рецепт не знайдено
                 throw new KeyNotFoundException($"Recipe with id {recipeId} not found.");
             }
         }
-    
+
 
         public async Task<Recipe> GetRNDRecipe()
         {
@@ -140,6 +138,19 @@ namespace CookingBook.Services
 
             
         }
-               
+
+        public async Task<List<Recipe>> FilerRecipe(string filterPick)
+        {
+            await Init();
+
+            if (string.IsNullOrEmpty(filterPick))
+                return new List<Recipe>();
+
+            var filteredRecipe = await _connection.Table<Recipe>().Where(x => x.TypeDish == filterPick).ToListAsync();
+
+            return filteredRecipe; 
+        }
+       
+              
     }
 }

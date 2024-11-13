@@ -45,4 +45,13 @@ public partial class ListPage : ContentPage
 
         RecipeList.ItemsSource = recipes;       
     }
+
+    private async void FilterButtonClicked(object sender, EventArgs e)
+    {
+        var selectedType = TypeDishFilter.SelectedItem as string;
+
+       List<Recipe> filterRecipe = await App.RecipeRepo.FilerRecipe(selectedType);
+
+       RecipeList.ItemsSource = filterRecipe;
+    }
 }

@@ -42,10 +42,10 @@
                             FontSize="20" 
                             TextColor="Black"                         
                             HeightRequest="400"
-                            Placeholder="Maximun 1000 symbols">
+                            Placeholder="Maximun 5000 symbols">
                         <Editor.Behaviors>
                             <tooklit:TextValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
-                                                            MaximumLength="1000"
+                                                            MaximumLength="5000"
                                                             x:Name="textValidator"/>
                         </Editor.Behaviors>
                     </Editor>
@@ -54,6 +54,14 @@
                 </VerticalStackLayout>
             </Frame>
 
+            <Frame BackgroundColor="#b15706" >
+                <Picker x:Name="TypeDishFilter"
+                        Title="Select type of dish" 
+                        TitleColor="Black"
+                        TextColor="Black"
+                        FontSize="20"/>    
+            </Frame>
+            
             <Button x:Name="btnAdd"
                     Text="Add recipe"
                     Clicked="btnAdd_Clicked"
