@@ -6,7 +6,7 @@
     <VerticalStackLayout BackgroundColor="#f5c125"
                          Padding="10,5,10,5">
         <Label 
-            Text="I`m search how added some filter for recipe and random, but now you haw only open one button"
+            Text="You can open random recipe or any type recipe"
             TextColor="Black"
             FontSize="40"
             VerticalOptions="Center" 

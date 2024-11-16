@@ -51,7 +51,7 @@
             <Frame BackgroundColor="#b15706" >
                 <Picker x:Name="TypeDishFilter"
                         Title="Pick type dish"
-                        FontSize="24"
+                        FontSize="16"
                         TextColor="Black"
                         TitleColor="Black"
                         >
