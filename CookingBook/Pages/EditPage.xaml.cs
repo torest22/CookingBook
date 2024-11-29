@@ -32,7 +32,7 @@ public partial class EditPage : ContentPage
     private async void LoadRecipe(int recipeId)
     {
         // Встановлюємо ItemsSource для Picker
-        TypeDishFilter.ItemsSource = new List<string> { "1st dish", "2nd dish", "Desert", "Drink", "Snack" };
+        TypeDishFilter.ItemsSource = new List<string> { "1st dish", "2nd dish","Salad", "Desert", "Drink", "Snack" };
 
         // Додаємо обробник події SelectedIndexChanged
         TypeDishFilter.SelectedIndexChanged += (s, e) =>

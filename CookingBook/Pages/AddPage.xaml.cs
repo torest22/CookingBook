@@ -12,7 +12,7 @@ public partial class AddPage : ContentPage
 
     private async void LoadTypeRecipe()
     {
-        TypeDishFilter.ItemsSource = new List<string> { "1st dish", "2nd dish", "Desert", "Drink", "Snack" };         
+        TypeDishFilter.ItemsSource = new List<string> { "1st dish", "2nd dish", "Salad", "Desert", "Drink", "Snack" };         
     }
 
     private async void btnAdd_Clicked(object sender, EventArgs e)
