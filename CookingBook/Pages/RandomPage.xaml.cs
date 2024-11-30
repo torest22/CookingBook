@@ -38,7 +38,7 @@ public partial class RandomPage : ContentPage
 
     private async void LoadTypeRecipe()
     {
-        TypeDishFilter.ItemsSource = new List<string> { "1st dish", "2nd dish", "Desert", "Drink", "Snack" };
+        TypeDishFilter.ItemsSource = new List<string> { "1st dish", "2nd dish","Salad", "Desert", "Drink", "Snack" };
     }
 
     private async void btnRndTypeDish_Clicked(object sender, EventArgs e)
