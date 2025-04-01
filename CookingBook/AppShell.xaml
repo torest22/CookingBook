@@ -8,9 +8,10 @@
     Shell.FlyoutBehavior="Disabled"
     Title="CookingBook">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate Pages:FistPage}"
-        Route="MainPage" />
+    <ShellContent Title="FistPage"
+                  ContentTemplate="{DataTemplate Pages:FistPage}"
+                  Route="FistPage"/>
+
+
 
 </Shell>

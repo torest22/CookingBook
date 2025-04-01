@@ -9,30 +9,43 @@ namespace CookingBook.Services
 {
     public class RecipeRepository
     {
-        string _dbPath;
-
-        private SQLiteAsyncConnection _connection;
-
+        private readonly SQLiteAsyncConnection _connection;
+        private readonly string _dbPath;
 
         public async Task Init()
         {
-
-            _connection = new SQLiteAsyncConnection(_dbPath);
-
-            await _connection.CreateTableAsync<Recipe>();
-
+            try
+            {
+                await DatabaseHelper.CopyDatabaseIfNotExists(); // Копіюємо базу, якщо її немає
+                await _connection.CreateTableAsync<Recipe>();   // Переконуємось, що таблиця існує
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error initializing database: {ex.Message}");
+            }
         }
 
         public RecipeRepository(string dbPath)
         {
             _dbPath = dbPath;
+            _connection = new SQLiteAsyncConnection(_dbPath);
         }
+
 
         public async Task<List<Recipe>> GetAllRecipe()
         {
             await Init();
 
-            return await _connection.Table<Recipe>().ToListAsync();
+            try
+            {
+                return await _connection.Table<Recipe>().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                // Логування помилки
+                Console.WriteLine($"Error fetching recipes from database: {ex.Message}");
+                return new List<Recipe>(); // Повертаємо порожній список в разі помилки
+            }
         }
 
         public async Task AddRecipe(string name, string descr, string typeDish)
@@ -151,6 +164,9 @@ namespace CookingBook.Services
             return filteredRecipe; 
         }
        
+
+
+
               
     }
 }

@@ -1,4 +1,5 @@
-﻿using CookingBook.Services;
+﻿using CookingBook.Pages;
+using CookingBook.Services;
 
 namespace CookingBook
 {
@@ -8,10 +9,12 @@ namespace CookingBook
         public App(RecipeRepository repo)
         {
             InitializeComponent();
-
-            MainPage = new AppShell();
-
             RecipeRepo = repo;
+
+            Task.Run(async () => await DatabaseHelper.CopyDatabaseIfNotExists());
+
+            MainPage = new AppShell(); // Використовуємо тільки AppShell!
         }
+
     }
 }

@@ -18,9 +18,16 @@ public partial class ListPage : ContentPage
 
     private async void LoadRecipe()
     {
-        List<Recipe> recipes = await App.RecipeRepo.GetAllRecipe();
-        RecipeList.ItemsSource = recipes;
-        
+        try
+        {
+            List<Recipe> recipes = await App.RecipeRepo.GetAllRecipe();
+            RecipeList.ItemsSource = recipes;
+        }
+        catch (Exception ex)
+        {
+            // Логування помилки, щоб зрозуміти, де виникає проблема
+            Console.WriteLine($"Error loading recipes: {ex.Message}");
+        }
     }
 
     

@@ -1,3 +1,5 @@
+﻿using CookingBook.Services;
+
 namespace CookingBook.Pages;
 
 public partial class FistPage : ContentPage
@@ -6,15 +8,15 @@ public partial class FistPage : ContentPage
 	{
 		InitializeComponent();
 	}
-
-    private void btnRecipe_Clicked(object sender, EventArgs e)
+    private  async void btnRecipe_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(ListPage));
+
+        await Shell.Current.GoToAsync(nameof(ListPage));
     }
 
-    private void btnRandom_Clicked(object sender, EventArgs e)
+    private async void btnRandom_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(RandomPage));
+       await  Shell.Current.GoToAsync(nameof(RandomPage));
     }
 
    
