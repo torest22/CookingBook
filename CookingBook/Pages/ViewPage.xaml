@@ -38,20 +38,17 @@
                        x:Name="BtnGoToEdit" 
                        Text="Edit recipe"
                        Clicked="BtnGoToEdit_Clicked"
-                       FontSize="24"
                        BackgroundColor="Orange"
                        BorderWidth="2"
                        BorderColor="Black"
-                       HeightRequest="50"
-                       
+                       HeightRequest="50"                       
                        HorizontalOptions="Start" 
                        VerticalOptions="End"/>
 
                 <Button 
                        x:Name="BtnGoBack" 
-                       Text="Back to list recipe" 
+                       Text="Go back" 
                        Clicked="BtnGoBack_Clicked"
-                       FontSize="24"
                        BackgroundColor="Orange"
                        BorderWidth="2"
                        BorderColor="Black"

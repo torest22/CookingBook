@@ -15,11 +15,9 @@
                     <Label Text="Name: "
                            x:Name="lableName" 
                            FontFamily="BalsamiqItalic"
-                           TextColor="Black"
-                           FontSize="20"                       
+                           TextColor="Black"                    
                        />
                     <Entry x:Name="entryName"
-                           FontSize="20" 
                            TextColor="Black"                           
                            Placeholder="Min 3 max 50 symbols"                           
                            > 
@@ -42,11 +40,9 @@
                 <Label Text="Desctipion: "
                        FontFamily="BalsamiqItalic"
                        TextColor="Black"
-                       FontSize="20" 
                       
                        />
                     <Editor x:Name="entryDescr" 
-                            FontSize="20" 
                             TextColor="Black"                                             
                             Placeholder =" Maximun 5000 Submols"
                             VerticalOptions="FillAndExpand"
@@ -79,7 +75,6 @@
                     x:Name="btnDelete"
                     Text="Delete"
                     Clicked="btnDelete_Clicked"
-                    FontSize="24"
                     BackgroundColor="Red"
                     BorderWidth="2"
                     BorderColor="Black"
@@ -90,9 +85,8 @@
                     Grid.Row="2"
                     Grid.Column="1"
                     x:Name="btnUpDate"
-                    Text="UpDate Recipe" 
+                    Text="Go back" 
                     Clicked="btnUpDate_Clicked"
-                    FontSize="24"
                     BackgroundColor="Orange"
                     BorderWidth="2"
                     BorderColor="Black" 
@@ -102,9 +96,8 @@
                 <Button
                     
                     x:Name="Btnback"
-                    Text="Black" 
+                    Text="Update recipe" 
                     Clicked="Btnback_Clicked"
-                    FontSize="24"
                     BackgroundColor="Orange"
                     BorderWidth="2"
                     BorderColor="Black"  

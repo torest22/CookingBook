@@ -2,9 +2,9 @@
 
 namespace CookingBook.Pages;
 
-public partial class FistPage : ContentPage
+public partial class FirstPage : ContentPage
 {
-	public FistPage()
+	public FirstPage()
 	{
 		InitializeComponent();
 	}

@@ -16,7 +16,7 @@ public partial class EditPage : ContentPage
     {
         InitializeComponent();
 
-        string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "recipes.db");
+        string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "recipe.db3");
         _database = new RecipeRepository(dbPath);
 
         LoadRecipe(recipeId);
@@ -43,7 +43,7 @@ public partial class EditPage : ContentPage
             }
         };
 
-        // Завантажуємо рецепт з бази даних
+       
         _recipe = await App.RecipeRepo.GetByIdAsync(recipeId);
         if (_recipe != null)
         {
@@ -78,15 +78,31 @@ public partial class EditPage : ContentPage
             {
                 await App.RecipeRepo.DeleteRecipe(_recipe.id);
                 await Shell.Current.GoToAsync(nameof(ListPage));
-            }
-
-            
+            }          
 
         }
     }
 
     private async void btnUpDate_Clicked(object sender, EventArgs e)
     {
+        if (_recipe != null)
+        {
+            bool answer = await DisplayAlert("Question:", "Do you want exit without change?", "Yes", "No");
+            Debug.WriteLine("Answer: " + answer);
+            if (answer is true)
+            {
+                await Shell.Current.GoToAsync(nameof(ListPage));
+            }
+
+
+
+        }
+    }
+
+    private async void Btnback_Clicked(object sender, EventArgs e)
+    {
+      
+
         if (nameValidator.IsNotValid)
         {
             await DisplayAlert("Error ", "Name is requred.End minimum 3 symbols maximun 50", "Ok");
@@ -98,40 +114,16 @@ public partial class EditPage : ContentPage
             return;
         }
 
-        // Оновлюємо рецепт за допомогою методу з репозиторію
         _recipe = await App.RecipeRepo.UpdateRecipe(recId, _recipe);
 
         if (_recipe != null)
         {
-            // Оновлюємо дані рецепта зі значеннями з полів введення
+
             _recipe.Name = entryName.Text;
             _recipe.Description = entryDescr.Text;
-
-            // Фактично оновлюємо рецепт у базі даних після оновлення властивостей
             await App.RecipeRepo.UpdateRecipe(recId, _recipe);
-
-            // Повідомляємо про успішне оновлення
             await DisplayAlert("Success", "Recipe updated successfully.", "OK");
-
-            // Переходимо на сторінку зі списком після успішного оновлення
             await Shell.Current.GoToAsync(nameof(ListPage));
-
-        }
-    }
-
-    private async void Btnback_Clicked(object sender, EventArgs e)
-    {
-        if (_recipe != null)
-        {
-            bool answer = await DisplayAlert("Question:", "Do you want exit without change?", "Yes", "No");
-            Debug.WriteLine("Answer: " + answer);
-            if (answer is true)
-            {
-             
-                await Shell.Current.GoToAsync(nameof(ListPage));
-            }
-
-
 
         }
     }

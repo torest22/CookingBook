@@ -7,7 +7,7 @@ namespace CookingBook
         {
             InitializeComponent();
 
-            Routing.RegisterRoute(nameof(FistPage),   typeof(FistPage));
+            Routing.RegisterRoute(nameof(FirstPage),   typeof(FirstPage));
             Routing.RegisterRoute(nameof(AddPage),    typeof(AddPage));
             Routing.RegisterRoute(nameof(EditPage),   typeof(EditPage));
             Routing.RegisterRoute(nameof(ListPage),   typeof(ListPage));

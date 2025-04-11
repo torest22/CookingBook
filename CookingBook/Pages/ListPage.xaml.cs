@@ -51,14 +51,27 @@ public partial class ListPage : ContentPage
      List<Recipe> recipes = await App.RecipeRepo.SearchDB(((SearchBar)sender).Text);
 
         RecipeList.ItemsSource = recipes;       
-    }
+    } 
 
-    private async void FilterButtonClicked(object sender, EventArgs e)
+    private async void TypeDishFilter_SelectedIndexChanged(object sender, EventArgs e)
     {
+
         var selectedType = TypeDishFilter.SelectedItem as string;
 
-       List<Recipe> filterRecipe = await App.RecipeRepo.FilerRecipe(selectedType);
+        if (selectedType == "Show all recipe")
+        {
+            LoadRecipe();
+        }
+        else
+        {
+            List<Recipe> filterRecipe = await App.RecipeRepo.FilerRecipe(selectedType);
+            RecipeList.ItemsSource = filterRecipe;
+        }
 
-       RecipeList.ItemsSource = filterRecipe;
+    }
+
+    private void BtnBack_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("///FirstPage");
     }
 }

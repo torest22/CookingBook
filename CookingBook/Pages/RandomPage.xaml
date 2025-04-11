@@ -15,10 +15,9 @@
             />
         
         <Button x:Name="btnAllRandom"
-                Text="Open random recipe"
+                Text="Random recipe"
                 FontFamily="BalsamiqItalic"
-                Clicked="btnAllRandom_Clicked"
-                FontSize="24"
+                Clicked="btnAllRandom_Clicked"               
                 BackgroundColor="Orange"
                 BorderWidth="2"
                 BorderColor="Black"
@@ -34,15 +33,29 @@
                     TitleColor="Black"
                 />
         </Frame>
-        <Button x:Name="btnRndTypeDish"
-                Text="Open rnd recipe"
-                FontSize="24"
-                BackgroundColor="Orange"
-                BorderWidth="2"
-                BorderColor="Black"
-                HorizontalOptions="Center"
-                WidthRequest="300" 
-                Clicked="btnRndTypeDish_Clicked"
+        <AbsoluteLayout>
+            <Button x:Name="btnRndTypeDish"
+                    Text="Open chosen recipe"
+                    BackgroundColor="Orange"
+                    BorderWidth="2"
+                    BorderColor="Black"
+                    WidthRequest="300" 
+                    Clicked="btnRndTypeDish_Clicked"
+                    Margin="2"
+                    AbsoluteLayout.LayoutBounds="0, 1, AutoSize, AutoSize"
+                    AbsoluteLayout.LayoutFlags="PositionProportional" 
                 />
+            <Button x:Name="BtnBack"
+                    Text="Go back"
+                    BackgroundColor="Orange"
+                    BorderWidth="2"
+                    BorderColor="Black" 
+                    WidthRequest="300" 
+                    Clicked="BtnBack_Clicked"
+                    Margin="2"
+                    AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+                    AbsoluteLayout.LayoutFlags="PositionProportional" 
+                />
+        </AbsoluteLayout>
     </VerticalStackLayout>
 </ContentPage>

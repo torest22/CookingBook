@@ -120,7 +120,7 @@ namespace CookingBook.Services
             if (recipes.Count <= 0)
             {
                await Application.Current.MainPage.DisplayAlert("Attention", "You dont have recipie", "ОК"); 
-                await Shell.Current.GoToAsync(nameof(FistPage));
+                await Shell.Current.GoToAsync(nameof(FirstPage));
             }
             else
             {

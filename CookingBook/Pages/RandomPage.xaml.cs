@@ -32,7 +32,7 @@ public partial class RandomPage : ContentPage
         }
         else
         {
-            await Shell.Current.GoToAsync(nameof(FistPage));
+            await Shell.Current.GoToAsync(nameof(FirstPage));
         }
     }
 
@@ -51,18 +51,20 @@ public partial class RandomPage : ContentPage
 
 
         if (filterRecipe != null && filterRecipe.Count > 0)
-        {
-            // Вибираємо випадковий рецепт з фільтрованого списку
+        {        
             Random rand = new Random();
             Recipe randomRecipe = filterRecipe[rand.Next(filterRecipe.Count)];
-
-            int rndID = randomRecipe.id; // Отримуємо id випадкового рецепта
+            int rndID = randomRecipe.id;
             await Navigation.PushAsync(new ViewPage(rndID));
         }
         else
         {
-            // Якщо не знайдено рецептів для вибраного типу, перенаправляємо на іншу сторінку
-            await Shell.Current.GoToAsync(nameof(FistPage));
+            await Shell.Current.GoToAsync("///FirstPage");
         }
     }
+
+    private   void BtnBack_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("///FirstPage");
     }
+}
