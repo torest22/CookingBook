@@ -14,9 +14,7 @@ public partial class RandomPage : ContentPage
         LoadTypeRecipe();
 
         var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "recipes.db");
-        using (var db = new SQLite.SQLiteConnection(dbPath)) ;
-
-
+        using (var db = new SQLite.SQLiteConnection(dbPath));
     }
 
     private async void btnAllRandom_Clicked(object sender, EventArgs e)
@@ -45,10 +43,7 @@ public partial class RandomPage : ContentPage
     {
         var selectedType = TypeDishFilter.SelectedItem as string;
 
-
         List<Recipe> filterRecipe = await App.RecipeRepo.FilerRecipe(selectedType);
-
-
 
         if (filterRecipe != null && filterRecipe.Count > 0)
         {        

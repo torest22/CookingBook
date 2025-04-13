@@ -42,8 +42,7 @@ public partial class EditPage : ContentPage
                 _recipe.TypeDish = TypeDishFilter.SelectedItem.ToString();
             }
         };
-
-       
+        
         _recipe = await App.RecipeRepo.GetByIdAsync(recipeId);
         if (_recipe != null)
         {
@@ -64,9 +63,6 @@ public partial class EditPage : ContentPage
             }
         }
     }
-
-
-
 
     private async void btnDelete_Clicked(object sender, EventArgs e)
     {
@@ -93,9 +89,6 @@ public partial class EditPage : ContentPage
             {
                 await Shell.Current.GoToAsync(nameof(ListPage));
             }
-
-
-
         }
     }
 

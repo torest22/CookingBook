@@ -39,14 +39,12 @@ public partial class AddPage : ContentPage
 
     private async void btnBack_Clicked(object sender, EventArgs e)
     {
-        
             bool answer = await DisplayAlert("Question:", "Do you want exit without change?", "Yes", "No");
             Debug.WriteLine("Answer: " + answer);
             if (answer is true)
             {
 
                 await Shell.Current.GoToAsync(nameof(ListPage));
-            }
-        
+            }        
     }
 }

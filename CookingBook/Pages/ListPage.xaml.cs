@@ -18,19 +18,9 @@ public partial class ListPage : ContentPage
 
     private async void LoadRecipe()
     {
-        try
-        {
             List<Recipe> recipes = await App.RecipeRepo.GetAllRecipe();
-            RecipeList.ItemsSource = recipes;
-        }
-        catch (Exception ex)
-        {
-            // Логування помилки, щоб зрозуміти, де виникає проблема
-            Console.WriteLine($"Error loading recipes: {ex.Message}");
-        }
-    }
-
-    
+            RecipeList.ItemsSource = recipes;      
+    }   
 
     private  async void RecipeList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
@@ -41,9 +31,7 @@ public partial class ListPage : ContentPage
             await Navigation.PushAsync(new ViewPage(recipeId));
 
             ((ListView)sender).SelectedItem = null;
-
         }
-
     }
 
     private async void btnSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -55,7 +43,6 @@ public partial class ListPage : ContentPage
 
     private async void TypeDishFilter_SelectedIndexChanged(object sender, EventArgs e)
     {
-
         var selectedType = TypeDishFilter.SelectedItem as string;
 
         if (selectedType == "Show all recipe")
@@ -67,7 +54,6 @@ public partial class ListPage : ContentPage
             List<Recipe> filterRecipe = await App.RecipeRepo.FilerRecipe(selectedType);
             RecipeList.ItemsSource = filterRecipe;
         }
-
     }
 
     private void BtnBack_Clicked(object sender, EventArgs e)

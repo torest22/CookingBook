@@ -8,7 +8,7 @@
                              Padding="10"
                              Spacing="20">
 
-            <Frame BackgroundColor="#f5c125">
+            <Frame         BackgroundColor="#f5c125">
                 <HorizontalStackLayout>
                     <Label Text="Name: "
                            FontFamily="BalsamiqItalic"
@@ -30,7 +30,7 @@
                 </HorizontalStackLayout>
             </Frame>
 
-            <Frame BackgroundColor="White">
+            <Frame          BackgroundColor="White">
                 <VerticalStackLayout>
                     <Label  Text="Description: "
                             FontFamily="BalsamiqItalic"
@@ -51,7 +51,7 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <Frame BackgroundColor="#b15706" >
+            <Frame      BackgroundColor="#b15706" >
                 <Picker x:Name="TypeDishFilter"
                         Title="Select type of dish" 
                         TitleColor="Black"
@@ -71,11 +71,7 @@
                     Clicked="btnBack_Clicked"
                     BackgroundColor="Orange"
                     BorderWidth="2"
-                    BorderColor="Black"/>   
-
-
-
+                    BorderColor="Black"/>  
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

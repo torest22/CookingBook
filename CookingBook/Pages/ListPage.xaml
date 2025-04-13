@@ -8,8 +8,7 @@
         <SearchBar x:Name="btnSearch"
                    Placeholder="Search...."
                    TextColor="Black"                   
-                   TextChanged="btnSearch_TextChanged">
-            
+                   TextChanged="btnSearch_TextChanged">            
         </SearchBar>
         <Frame BackgroundColor="#b15706" >
             <Picker x:Name="TypeDishFilter"
@@ -30,8 +29,6 @@
                 </Picker.Items>
             </Picker>
         </Frame>
-
-
         <ListView x:Name="RecipeList"
               ItemSelected="RecipeList_ItemSelected"
               HasUnevenRows="True"
@@ -74,6 +71,5 @@
                     AbsoluteLayout.LayoutFlags="PositionProportional" 
                     />
         </AbsoluteLayout>
-    </StackLayout>
-  
+    </StackLayout>  
 </ContentPage>

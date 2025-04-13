@@ -8,9 +8,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-       
+        </Grid.RowDefinitions>       
         <ScrollView    Grid.Row="0"
                        VerticalOptions="FillAndExpand">
             <VerticalStackLayout Padding="10">
@@ -19,18 +17,17 @@
                        FontSize="28"
                        FontFamily="BalsamiqItalic"
                        TextColor="Black"
-                       Padding="10,5" />
-
+                       Padding="10,5"
+                       />
                 <Label x:Name="lableDescr" 
                        Text=""
                        FontSize="20"
                        FontFamily="BalsamiqItalic"
                        TextColor="Black"
-                       Padding="10,5" />
+                       Padding="10,5" 
+                       />
             </VerticalStackLayout>
         </ScrollView>
-
-
                 <Grid  Grid.Row="1"
                        Padding="10"
                        >
@@ -43,8 +40,8 @@
                        BorderColor="Black"
                        HeightRequest="50"                       
                        HorizontalOptions="Start" 
-                       VerticalOptions="End"/>
-
+                       VerticalOptions="End"
+                    />
                 <Button 
                        x:Name="BtnGoBack" 
                        Text="Go back" 
@@ -54,7 +51,8 @@
                        BorderColor="Black"
                        HeightRequest="50"                       
                        HorizontalOptions="End"
-                       VerticalOptions="End"/>
+                       VerticalOptions="End"
+                    />
                 </Grid>
     </Grid>
 </ContentPage>

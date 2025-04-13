@@ -17,7 +17,5 @@ public partial class FirstPage : ContentPage
     private async void btnRandom_Clicked(object sender, EventArgs e)
     {
        await  Shell.Current.GoToAsync(nameof(RandomPage));
-    }
-
-   
+    }   
 }

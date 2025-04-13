@@ -9,7 +9,6 @@
     <VerticalStackLayout Spacing="20"
                          BackgroundColor="#f5c125"
                          Padding="10">
-
         <Frame BackgroundColor="#f5c125">
             <HorizontalStackLayout>
                     <Label Text="Name: "
@@ -30,46 +29,38 @@
                                     />
                         </Entry.Behaviors>
                     </Entry>
-                </HorizontalStackLayout>
-            
+                </HorizontalStackLayout>            
         </Frame>
-
         <Frame BackgroundColor="White"
                >               
             <VerticalStackLayout>
                 <Label Text="Desctipion: "
                        FontFamily="BalsamiqItalic"
-                       TextColor="Black"
-                      
+                       TextColor="Black"                      
                        />
                     <Editor x:Name="entryDescr" 
                             TextColor="Black"                                             
                             Placeholder =" Maximun 5000 Submols"
                             VerticalOptions="FillAndExpand"
                             HorizontalOptions="FillAndExpand"
-                        >
-                        
+                        >                        
                         <Editor.Behaviors>
                             <tooklit:TextValidationBehavior Flags="ValidateOnAttaching,ValidateOnValueChanged"
                                 MaximumLength="5000"
                                 x:Name="textValidator"/>
                         </Editor.Behaviors>
                     </Editor>
-                </VerticalStackLayout>
-           
+                </VerticalStackLayout>           
         </Frame>
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
                 </Grid.RowDefinitions>
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
             <Button Grid.Row="2"
                     Grid.Column="0"
                     x:Name="btnDelete"
@@ -78,8 +69,7 @@
                     BackgroundColor="Red"
                     BorderWidth="2"
                     BorderColor="Black"
-                    Margin="5"
-                    
+                    Margin="5"                    
                 />
             <Button 
                     Grid.Row="2"
@@ -90,11 +80,9 @@
                     BackgroundColor="Orange"
                     BorderWidth="2"
                     BorderColor="Black" 
-                    Margin="5"
-                    
+                    Margin="5"                    
                 />
-                <Button
-                    
+                <Button                    
                     x:Name="Btnback"
                     Text="Update recipe" 
                     Clicked="Btnback_Clicked"
@@ -103,8 +91,8 @@
                     BorderColor="Black"  
                     Margin="5"
                     />
-                <Frame Grid.Column="1"
-                       BackgroundColor="#b15706">
+                <Frame      Grid.Column="1"
+                            BackgroundColor="#b15706">
                     <Picker x:Name="TypeDishFilter"
                             Title="Type dish"
                             TitleColor="Black"
@@ -112,8 +100,6 @@
                             FontSize="20"
                             />    
                 </Frame>
-
-
             </Grid>
     </VerticalStackLayout>
     </ScrollView>
